@@ -21,24 +21,30 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'duParallax'])
     $scope.selected = -1;
 
     // show spinner for a period of time based on screen size
-    if ($window.innerWidth > 1900) {
-        // 11.5 secs
-        $timeout(function() {$scope.loaded = true;}, 11500);
-    } else if ($window.innerWidth > 1600 && $window.innerWidth <= 1900) {
-        // 10 secs
-        $timeout(function() {$scope.loaded = true;}, 10000);
+    if ($window.innerWidth > 2000) {
+        // 12.5 secs
+        $timeout(function() {$scope.loaded = true;}, 12500);
+    } else if ($window.innerWidth > 1600 && $window.innerWidth <= 2000) {
+        // 11 secs
+        $timeout(function() {$scope.loaded = true;}, 11000);
     } else if ($window.innerWidth > 768 && $window.innerWidth <= 1600) {
         // 8.5 secs
-        $timeout(function() {$scope.loaded = true;}, 8500);
+        $timeout(function() {$scope.loaded = true;}, 9000);
     } else {
         // 7 secs
-        $timeout(function() {$scope.loaded = true;}, 7000);
+        $timeout(function() {$scope.loaded = true;}, 7500);
     }
 
     $scope.flip = function (index) {
-        if($scope.selected == -1) {
+        if($scope.selected === -1 && $scope.selected !== index) {
+            // none of the projects flipped
             $scope.selected = index; 
+        } else if($scope.selected !== -1 && $scope.selected !== index){
+            // selected project is not flipped 
+            $scope.selected = -1;
+            $timeout(function() {$scope.selected = index;}, 400);
         } else {
+            // seleted project is flipped
             $scope.selected = -1;
         }
     };
@@ -93,10 +99,10 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'duParallax'])
         $rootScope.scene = data.scene;
 
         // photo path based on screen size
-        if ($window.innerWidth > 1900){
+        if ($window.innerWidth > 2000){
             // path: img/xb/ 
             $rootScope.photoPath = data.photo_path.xb;
-        } else if ($window.innerWidth > 1600 && $window.innerWidth <= 1900) {
+        } else if ($window.innerWidth > 1600 && $window.innerWidth <= 2000) {
             // path: img/bg/ 
             $rootScope.photoPath = data.photo_path.bg;
         } else if ($window.innerWidth > 768 && $window.innerWidth <= 1600) {

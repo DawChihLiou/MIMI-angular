@@ -5,7 +5,7 @@
 		"url": "landing.png"
 	},
 
-	"landing_caption":"Love coding. Love designing. Love loving.",
+	"landing_caption":"Love coding. Love designing. Love loving",
 
 	"works":[
         {
@@ -13,7 +13,7 @@
             "url":"dcliou.png",
             "mockup":"mockup_dcliou.png",
             "caption":"Web Developer . UX Designer",
-            "des":"Personal portfolio showcases professional experience and passion.",
+            "des":"Personal portfolio showcases professional experience and passion",
             "resposibility":"Designed interactions and implemented responsive UI",
             "tech":"AngularJS . Bootstrap . Photoshop"
         },
@@ -22,49 +22,49 @@
             "url":"collegezen.png",
             "mockup":"mockup_collegezen.png",
             "caption":"Front End Developer",
-            "des":"CollegeZen intro site uncovers charactors and services of the startup company.",
+            "des":"CollegeZen intro site uncovers charactors and services of the startup company",
             "resposibility":"Prototyped User Interface and interactions",
             "tech":"HTML . CSS3 . jQuery"
-        },{
-            "name":"Break Free Room",
-            "url":"break.png",
-            "mockup":"mockup_break.png",
-            "caption":"UX Designer",
-            "des":"Social network site helps teenagers go through personal trauma.",
-            "resposibility":"Conducted user study and created visual design prototypes",
-            "tech":"In-depth interview . Heuristic analysis . Photoshop"
         },{
             "name":"ReCom",
             "url":"recom.png",
             "mockup":"mockup_recom.png",
             "caption":"J2EE . SQL Developer",
-            "des":"Online shopping system provides intriguing recommendations.",
-            "resposibility":"Designed and constructed database. Implemented UI and back-end logic",
+            "des":"Online shopping system provides intriguing recommendations",
+            "resposibility":"Designed and constructed database, UI and server",
             "tech":"SQL . JSP . CSS . jQuery"
+        },{
+            "name":"Break Free Room",
+            "url":"break.png",
+            "mockup":"mockup_break.png",
+            "caption":"UX Designer",
+            "des":"Social network site helps teenagers go through personal trauma",
+            "resposibility":"Conducted user study and created prototypes",
+            "tech":"Heuristic analysis . Photoshop"
         },{
             "name":"PittBridge",
             "url":"pittbridge.png",
             "mockup":"mockup_pittbridge.png",
             "caption":"Android Developer",
-            "des":"Educational Android application introduces bridges in Pittsburgh area.",
-            "resposibility":"Designed UX and interactions. Implemented UI and navigations.",
-            "tech":"Android SDK . Heuristic analysis . Wireframe"
+            "des":"Educational Android application introduces bridges in Pittsburgh area",
+            "resposibility":"Designed UX and interactions. Implemented UI",
+            "tech":"Android SDK . Wireframe"
         },{
             "name":"Balance Visual Deisgn",
             "url":"balance.png",
             "mockup":"mockup_balance.png",
             "caption":"Visual Deisgner",
             "des":"Artistic study of asymmetrical balance between objects of various sizes.",
-            "resposibility":"Evaluated Gravities of objects and designed visual flow with a note of focal point at the end.",
+            "resposibility":"Evaluated Gravities of objects and designed visual flow",
             "tech":"Balance theory . Sharpie pens . Ruler"
         },{
             "name":"Color Scheme Exploration",
             "url":"colorScheme.png",
             "mockup":"mockup_colorScheme.png",
             "caption":"Visual Deisgner",
-            "des":"Color Scheme harmony experiment.",
-            "resposibility":"Explored series of color scheme harmony.",
-            "tech":"Intensity ratio harmony . Harmonious area ratio harmony . Low cool harmony"
+            "des":"Color Scheme harmony experiment",
+            "resposibility":"Explored series of color scheme harmony",
+            "tech":"Low cool . Intensity ratio . Area ratio"
         }
     ],
 
