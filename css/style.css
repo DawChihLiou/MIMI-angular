@@ -562,7 +562,7 @@ button:hover {
 	-o-transition: -o-transform 0.35s ease 0s;
 	transition: transform 0.35s ease 0s;
 
-	-webkit-transform: -webkit-translate(0px, 10px);
+	-webkit-transform: translate(0px, 10px);
 	-moz-transform: -moz-translate(0px, 10px);
 	-ms-transform: -ms-translate(0px, 10px);
 	-o-transform: -o-translate(0px, 10px);
@@ -602,7 +602,7 @@ button:hover {
 
 .item.he.animate .overlay::before, .item.he.animate h5, .item.he.animate h6 {
 	opacity: 1;
-	-webkit-transform: -webkit-translate(0, 0);
+	-webkit-transform: translate(0, 0);
 	transform: translate(0, 0);
 }
 
