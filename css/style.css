@@ -630,11 +630,11 @@ button:hover {
 
 .project .front {
     cursor:pointer;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -ms-transform: rotateX(0deg) rotateY(0deg);
-    -o-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -715,11 +715,11 @@ button:hover {
 
 .project.flip .back {
     z-index: 4;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
-    -o-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 }
 
 
