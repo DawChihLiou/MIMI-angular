@@ -28,11 +28,11 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'duParallax'])
         // 11 secs
         $timeout(function() {$scope.loaded = true;}, 11000);
     } else if ($window.innerWidth > 768 && $window.innerWidth <= 1600) {
-        // 8.5 secs
-        $timeout(function() {$scope.loaded = true;}, 9000);
+        // 9.5 secs
+        $timeout(function() {$scope.loaded = true;}, 9500);
     } else {
-        // 7 secs
-        $timeout(function() {$scope.loaded = true;}, 7500);
+        // 8 secs
+        $timeout(function() {$scope.loaded = true;}, 8000);
     }
 
     $scope.flip = function (index) {
