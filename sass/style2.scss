@@ -13,6 +13,36 @@ $light-font: 300;
 	border-radius: $radius;
 }
 
+@mixin bounce-animation($name, $fillMode, $iteration, $duration) {
+	-webkit-animation-name: $name; 
+    -moz-animation-name: $name; 
+    -o-animation-name: $name; 
+    animation-name: $name; 
+
+    -webkit-animation-fill-mode: $fillMode; 
+    -moz-animation-fill-mode: $fillMode; 
+    -o-animation-fill-mode: $fillMode; 
+    animation-fill-mode: $fillMode; 
+    
+    -webkit-animation-iteration-count: $iteration; 
+    -moz-animation-iteration-count: $iteration;
+    -o-animation-iteration-count: $iteration; 
+    animation-iteration-count: $iteration; 
+
+    -webkit-animation-duration: $duration; 
+    -moz-animation-duration: $duration; 
+    -o-animation-duration: $duration; 
+    animation-duration: $duration;
+}
+
+// @mixin transition($property, $duration, $function, $delay) {
+// 	-webkit-transition: $property $duration $function $delay;
+//     -moz-transition: -moz-transform 0.35s ease 0s;
+//     -ms-transition: -ms-transform 0.35s ease 0s;
+//     -o-transition: -o-transform 0.35s ease 0s;
+//     transition: transform 0.35s ease 0s;
+// }
+
 /********** 
 
  Footer 
@@ -23,19 +53,17 @@ $light-font: 300;
 	height:100%;
 	min-height: 100%;
 	margin-bottom: 142px;
-}
 
-.wrap:after {
-  	content: "";
-  	display: block;
-}
-
-.footer, .wrap:after {
-  	height: 142px; 
+	&:after {
+  		content: "";
+  		display: block;
+  		height: 142px; 
+	}
 }
 
 .footer {
   	background: #f1c40f;
+  	height: 142px; 
 
   	h5 {
 		position: relative;
@@ -52,17 +80,18 @@ $light-font: 300;
 **********/
 
 #spinner {
-	position: relative;
+	position: absolute;
 	top:0;
 	bottom:0;
 	width: 100%;
 	height: 100%;
+	z-index: 0;
 	background-image: url("../img/icon/logo.png");
 	background-size:15%;
 	background-repeat: no-repeat;
 	background-position: center;
-	animation: fadeOutIn 2s linear infinite;
 	-webkit-animation: fadeOutIn 2s linear infinite;
+	animation: fadeOutIn 2s linear infinite;
 }
 
 
@@ -73,12 +102,13 @@ $light-font: 300;
 **********/
 
 #home {
-	position: relative;
-	top: -20px;
+	position: absolute;
+	// top: -20px;
 	width:100%;
 	height:100%;
 	min-height:100%;
 	background-color:#aaa;
+	z-index:1;
 }
 
 /**********
@@ -94,7 +124,7 @@ $light-font: 300;
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100%;
-    height:104%;
+    // height:104%;
 
     .scroll-icon {
 		background-image: url('../img/icon/arror.png');
@@ -137,7 +167,7 @@ $light-font: 300;
 		}
 
 		/* hint box for scrolling */
-		div.scroll-box {
+		.scroll-box {
 			position: absolute;
 			right: 0;
 			bottom: 2%;
@@ -149,32 +179,381 @@ $light-font: 300;
 			color:#f1c40f;
 			font-size:.9em;
 		}
+
+		.bounce { 
+			@include bounce-animation(bounce, both, infinite, 2s);
+		} 
 	}
 }
   
-.bounce { 
-    -webkit-animation-name: bounce; 
-    -moz-animation-name: bounce; 
-    -o-animation-name: bounce; 
-    animation-name: bounce; 
 
-    -webkit-animation-fill-mode:both; 
-    -moz-animation-fill-mode:both; 
-    -ms-animation-fill-mode:both; 
-    -o-animation-fill-mode:both; 
-    animation-fill-mode:both; 
-    
-    -webkit-animation-iteration-count: infinite; 
-    -moz-animation-iteration-count: infinite; 
-    animation-iteration-count: infinite; 
+/**********
 
-    -webkit-animation-duration:2s; 
-    -moz-animation-duration:2s; 
-    -ms-animation-duration:2s; 
-    -o-animation-duration:2s; 
-    animation-duration:2s; 
-} 
+ Portfolio Section
 
+**********/
+
+#works {
+	width:100%;
+	height:100%;
+	min-height:200px;
+	background-color:#aaa;
+
+	.project{
+		width:100%;
+		height:50%;
+		z-index:2;
+	}
+
+	.item {
+		position: relative;
+	    z-index: 2;
+	    overflow: hidden;
+	    width: 100%;
+		height:100%;
+		min-height:50%;
+		margin:0 auto;
+		background-repeat: no-repeat;
+		background-position: center center;
+		/* for Chrome*/
+		-webkit-backface-visibility: hidden;
+		/*-webkit-transform: translateZ(0);*/
+	}
+}
+
+/* Mask on image */
+.overlay {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+	width:100%;
+	height:100%;
+	margin:0;
+	text-align: center;
+	color:#fff;
+	position:absolute;
+	bottom:0;
+
+	&:after { 
+	    position:relative; 
+	    top:98.8%; 
+	    content: ''; 
+	    display: block; 
+	    margin: 0 auto; 
+	    height: 5px; 
+	    width: 0px; 
+	    opacity:1; 
+	    -webkit-transition:width .65s ease, background-color .65s ease; 
+	    transition: width .65s ease, background-color .65s ease; 
+	}
+
+	h2 {
+	    position: absolute;
+	    top: 45%;
+	    left: 0px;
+	    width: 100%;
+	    margin:0 !important;
+	    -webkit-transition: -webkit-transform 0.35s ease 0s;
+	    -moz-transition: -moz-transform 0.35s ease 0s;
+	    -ms-transition: -ms-transform 0.35s ease 0s;
+	    -o-transition: -o-transform 0.35s ease 0s;
+	    transition: transform 0.35s ease 0s;
+
+	    -webkit-transform: -webkit-translate(0px, -50%);
+	    -moz-transform: -moz-translate(0px, -50%);
+	    -ms-transform: -ms-translate(0px, -50%);
+	    -o-transform: -o-translate(0px, -50%);
+	    transform: translate(0px, -50%);
+	}
+
+	h5, h6 {
+		position: absolute;
+		left: 25%;
+		width: 50%;
+		opacity: 0;
+		margin:0 auto;
+		-webkit-transition: -webkit-transform 0.35s ease 0s;
+		-moz-transition: -moz-transform 0.35s ease 0s;
+		-ms-transition: -ms-transform 0.35s ease 0s;
+		-o-transition: -o-transform 0.35s ease 0s;
+		transition: transform 0.35s ease 0s;
+
+		-webkit-transform: translate(0px, 10px);
+		-moz-transform: -moz-translate(0px, 10px);
+		-ms-transform: -ms-translate(0px, 10px);
+		-o-transform: -o-translate(0px, 10px);
+		transform: translate(0px, 10px);
+	}
+
+	h5 {
+		bottom: 30%;
+	}
+
+	h6 {
+		bottom: 20%;
+	}
+}
+
+/* overlay animations */
+.item.he {
+	.overlay::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		-webkit-background: rgba(0,0,0,0.6);
+		-mos-background: rgba(0,0,0,0.6);
+		-o-background: rgba(0,0,0,0.6);
+		background: rgba(0,0,0,0.6);
+		content: '';
+		opacity: 0;
+		
+		-webkit-transition: opacity 0.35s ease 0s, -webkit-transform 0.35s ease 0s;
+		transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+	}
+	&.animate h2 {
+		-webkit-transform: translate(0, -40%) translate(0, -45px);
+		transform: translate(0, -40%) translate(0, -45px);
+	}
+
+	&.animate .overlay::before, &.animate h5, &.animate h6 {
+		opacity: 1;
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+
+	&.animate .overlay:after{ 
+	    width: 100%; 
+	    background: #f1c40f; 
+	} 
+}
+
+.project {
+	.front {
+	    cursor:pointer;
+	    -webkit-transform: rotateY(0deg);
+	    -moz-transform: rotateY(0deg);
+	    -ms-transform: rotateY(0deg);
+	    -o-transform: rotateY(0deg);
+	    transform: rotateY(0deg);
+
+	    -webkit-transform-style: preserve-3d;
+	    -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	    -o-transform-style: preserve-3d;
+	    transform-style: preserve-3d;
+
+	    -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+
+	    -webkit-transition: all .4s ease-in-out;
+	    -moz-transition: all .4s ease-in-out;
+	    -ms-transition: all .4s ease-in-out;
+	    -o-transition: all .4s ease-in-out;
+	    transition: all .4s ease-in-out;
+	}
+	.back {
+		position:absolute;
+		top:0;
+		width:100%;
+		height:100%;
+	    z-index:1;
+	    background-color:#f1c40f;
+	    cursor:pointer;
+	    overflow-y:scroll;
+	    -webkit-transform: rotateY(-180deg);
+	    -moz-transform: rotateY(-180deg);
+	    -ms-transform: rotateY(-180deg);
+	    -o-transform: rotateY(-180deg);
+	    transform: rotateY(-180deg);
+
+	    -webkit-transform-style: preserve-3d;
+	    -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	    -o-transform-style: preserve-3d;
+	    transform-style: preserve-3d;
+
+	    -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+
+	    -webkit-transition: all .4s ease-in-out;
+	    -moz-transition: all .4s ease-in-out;
+	    -ms-transition: all .4s ease-in-out;
+	    -o-transition: all .4s ease-in-out;
+	    transition: all .4s ease-in-out;
+
+	    h6 {
+			margin-top:8px !important;
+			margin-bottom:0 !important;
+		}
+
+		.mockup {
+			overflow: hidden;
+			width: 100%;
+		/*	max-height: 70%;
+			min-height: 50%;*/
+			height: 60%;
+			margin-top: 3%;
+			/*margin-bottom: 1%;*/
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: auto 100%;
+			overflow: hidden;
+		}
+	}
+
+	// flip animation 
+	&.flip .front, &.ng-scope.flip .front {
+	    z-index: 3;
+	    -webkit-transform: rotateY(180deg);
+	    -moz-transform: rotateY(180deg);
+	    -ms-transform: rotateY(180deg);
+	    -o-transform: rotateY(180deg);
+	    transform: rotateY(180deg);
+
+	}
+
+	&.flip .back {
+	    z-index: 4;
+	    -webkit-transform: rotateY(0deg);
+	    -moz-transform: rotateY(0deg);
+	    -ms-transform: rotateY(0deg);
+	    -o-transform: rotateY(0deg);
+	    transform: rotateY(0deg);
+	}
+}
+
+/**********
+
+ Transition landscape between works & about-me
+
+**********/
+
+.rock {
+	width:100%;
+	height:190%;
+	background-color:#aaa;
+}
+
+.scene {
+	top:8em;
+	width:100%;
+	height:100%;
+	min-height:200px;
+	background-color:#ccc;
+    z-index: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+	/*background-size: 100% auto;*/
+}
+
+/**********
+
+ About Me Section
+
+**********/
+
+#about-me {
+	position:relative;
+	z-index:2;
+	width:100%;
+	height:425px;
+	background-color:#f1c40f;
+
+	img {
+		position:relative;
+		margin:0 auto;
+		height:auto;
+		z-index:1;
+	}
+
+	.head {
+		top:-100px;
+		width:200px;
+		min-width:120px;
+		border-radius: 50%;
+	}
+
+	h3 {
+		position: relative;
+		top: -3.5em;
+		margin-top:10px !important;
+	}
+
+	h5 {
+		position:relative;
+		top:-70px;
+	}
+
+	.linkedin {
+		position:relative;
+		top:-4em;
+		width:3em;
+		height:3em;
+		border-radius:50%;
+		border: 1px solid #333;
+		-webkit-transition: all 0.35s ease 0s;
+		-moz-transition: all 0.35s ease 0s;
+		-ms-transition: all 0.35s ease 0s;
+		-o-transition: all 0.35s ease 0s;
+		transition: all 0.35s ease 0s;
+
+		&:hover {
+			border-radius:0;
+		}
+
+		img {
+			position: relative;
+			top: 0.5em;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			width:1.7em;
+			height: auto;
+		}
+	}
+}
+
+/**********
+
+ Contact Section
+
+**********/
+
+#contact {
+	width:100%;
+	height:auto;
+	min-height:200px;
+	background-color:#fff;
+
+	form {
+		width:60%;
+		margin:0 auto !important;
+		padding-top:6%;
+		padding-bottom:6%;
+	}
+
+	textarea {
+		resize:none;
+	}
+
+	h1, h4, p {
+		margin-top:0px;
+		margin-bottom:5px;
+		margin-left:0 !important;
+		margin-right:0 !important;
+	}
+
+	h1 {
+		font-size:2.4em ;
+	}
+
+	p {
+		font-size:80% !important;
+	}
+}
 
 /********** 
 
