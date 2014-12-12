@@ -1,14 +1,15 @@
 <div id="home" ng-cloak="" ng-show="loaded">
 
 	<!-- Landing view -->
-	<section id="landing" class="fill" ng-style="{'background-image':'url('+(photoPath+landingPicture.url)+')'}" du-parallax y="background"> 
+	<section id="landing" class="fill" 
+			 ng-style="{'background-image':'url('+(photoPath+landingPicture.url)+')'}" 
+			 du-parallax y="background"> 
 		<div class="center-block">
 			<h1 class="text-center">{{name}}</h1>
 			<h3 id="h3-landing" class="text-center">{{landingCaption}}</h3>
 			<div class="scroll-box bounce center-block">
 				<div class="scroll-icon"></div>
 			</div>
-			<!-- <h1 class="text-center">my works</h1> -->
 		</div>
 	</section>
 
@@ -23,9 +24,14 @@
 	<!-- works view -->
 	<section id="works">
 		<div class="row">
-			<div class="project col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-repeat="item in portfolioItems" ng-class="{flip: $index == selected}">
+			<div class="project col-lg-12 col-md-12 col-sm-12 col-xs-12" 
+				 ng-repeat="item in portfolioItems" 
+				 ng-class="{flip: $index == selected}">
 				<!-- Front -->
-				<div class="item he front" ng-style="{'background-image':'url('+(photoPath+item.url)+')'}" ng-click="flip($index)" scrolly>
+				<div class="item he front" 
+					 ng-style="{'background-image':'url('+(photoPath+item.url)+')'}" 
+					 ng-click="flip($index)" 
+					 scrolly>
 					<div class="overlay">
 						<h2>{{item.name}}</h2>
 						<h5>{{item.des}}</h5>
@@ -34,8 +40,8 @@
 				</div>
 				<!-- Back -->
 				<div class="back row" ng-click="flip($index)">
-					<div class="mockup center-block col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-style="{'background-image':'url('+(photoPath+item.mockup)+')'}">
-						<!-- <img class="center-block img-responsive" src="{{photoPath+item.mockup}}"></img> -->
+					<div class="mockup center-block col-lg-12 col-md-12 col-sm-12 col-xs-12" 
+						 ng-style="{'background-image':'url('+(photoPath+item.mockup)+')'}">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<h5 class="text-center">{{item.resposibility}}</h5>
@@ -50,17 +56,20 @@
 	<div class="rock"></div>
 
 	<!-- Scene -->
-	<section class="scene" ng-style="{'background-image':'url('+photoPath+scene.url+')'}" du-parallax y="background"></section>
+	<section class="scene" 
+	 		 ng-style="{'background-image':'url('+photoPath+scene.url+')'}" 
+	 		 du-parallax y="background"></section>
 
 	<!-- About Me view -->
-	<section id="about-me" class="row" >
+	<section id="about-me" class="row">
 		<div class="center-block col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<!-- <img class="img-responsive" src=""></img> -->
 			<img class="head img-responsive" src="img/mimi.png"></img>
 			<h3 class="text-center">{{name}}</h3>
 			<h5 class="text-center">{{aboutMe}}</h5>
 			<a href="{{linkedIn}}" target="_blank">
-				<div class="linkedin center-block"><img class="img-responsive" src="img/icon/LinkedIn.png"></img></div>
+				<div class="linkedin center-block">
+					<img class="img-responsive" src="img/icon/LinkedIn.png" />
+				</div>
 			</a>
 		</div>
 	</section>
@@ -72,9 +81,17 @@
 			<p class="text-center">------------------------</p>
 			<h4 class="text-center">{{name}}</h4>
 			<p class="text-center">{{email}}</p>
-			<input type="text" class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="cName" placeholder="Name" required></input>
-			<input type="email" class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="cEmail" placeholder="Email" required></input>
-			<textarea class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="cContent" rows="7" placeholder="Message" required></textarea>
+			<input type="text" 
+				   class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" 
+				   ng-model="cName" 
+				   placeholder="Name" required></input>
+			<input type="email" 
+				   class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" 
+				   ng-model="cEmail" 
+				   placeholder="Email" required></input>
+			<textarea class="form-control input-lg help-block col-lg-12 col-md-12 col-sm-12 col-xs-12" 
+					  ng-model="cContent" rows="7" 
+					  placeholder="Message" required></textarea>
 			<button type="submit" class="btn btn-default btn-lg btn-block">{{submitText}}</button>
 		</form>
 	</section>
