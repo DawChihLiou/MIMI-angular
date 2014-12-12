@@ -7,7 +7,7 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'duParallax'])
             controller: 'defaultController',
             templateUrl: 'views/default.html'
         })
-        .otherwise({redirectTo: '/'})
+        .otherwise({redirectTo: '/'});
 })
 
 .controller('defaultController', function ($scope, $http, $window, $timeout, Contents, parallaxHelper) {
@@ -60,9 +60,7 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'duParallax'])
             alert('Zero message makes zero sense!');
         } else {
             // xhr call
-            var url = 'php/message.php?name=' + $scope.cName 
-                                + '&comment=' + $scope.cContent
-                                + '&email=' + $scope.cEmail;
+            var url = 'php/message.php?name=' + $scope.cName + '&comment=' + $scope.cContent + '&email=' + $scope.cEmail;
 
             $http({ method: 'GET', url: url })
             .success(function (data, status, headers, config) {
