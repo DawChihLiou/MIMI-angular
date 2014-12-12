@@ -35,13 +35,22 @@ $light-font: 300;
     animation-duration: $duration;
 }
 
-// @mixin transition($property, $duration, $function, $delay) {
-// 	-webkit-transition: $property $duration $function $delay;
-//     -moz-transition: -moz-transform 0.35s ease 0s;
-//     -ms-transition: -ms-transform 0.35s ease 0s;
-//     -o-transition: -o-transform 0.35s ease 0s;
-//     transition: transform 0.35s ease 0s;
-// }
+@mixin transition($property, $duration, $function, $delay) {
+	@if $property == "transform" {
+		-webkit-transition: -webkit-#{$property} $duration $function $delay;
+	    -moz-transition: -moz-#{$property} $duration $function $delay;
+	    -ms-transition: -ms-#{$property} $duration $function $delay;
+	    -o-transition: -o-#{$property} $duration $function $delay;
+	    transition: $property $duration $function $delay;
+    } @else {
+    	-webkit-transition: $property $duration $function $delay;
+	    -moz-transition: $property $duration $function $delay;
+	    -ms-transition: $property $duration $function $delay;
+	    -o-transition: $property $duration $function $delay;
+	    transition: $property $duration $function $delay;
+    }
+	
+}
 
 /********** 
 
@@ -244,7 +253,7 @@ $light-font: 300;
 	    width: 0px; 
 	    opacity:1; 
 	    -webkit-transition:width .65s ease, background-color .65s ease; 
-	    transition: width .65s ease, background-color .65s ease; 
+    	transition: width .65s ease, background-color .65s ease; 
 	}
 
 	h2 {
@@ -253,11 +262,7 @@ $light-font: 300;
 	    left: 0px;
 	    width: 100%;
 	    margin:0 !important;
-	    -webkit-transition: -webkit-transform 0.35s ease 0s;
-	    -moz-transition: -moz-transform 0.35s ease 0s;
-	    -ms-transition: -ms-transform 0.35s ease 0s;
-	    -o-transition: -o-transform 0.35s ease 0s;
-	    transition: transform 0.35s ease 0s;
+	    @include transition(transform, 0.35s, ease, 0s);
 
 	    -webkit-transform: -webkit-translate(0px, -50%);
 	    -moz-transform: -moz-translate(0px, -50%);
@@ -272,12 +277,8 @@ $light-font: 300;
 		width: 50%;
 		opacity: 0;
 		margin:0 auto;
-		-webkit-transition: -webkit-transform 0.35s ease 0s;
-		-moz-transition: -moz-transform 0.35s ease 0s;
-		-ms-transition: -ms-transform 0.35s ease 0s;
-		-o-transition: -o-transform 0.35s ease 0s;
-		transition: transform 0.35s ease 0s;
-
+		@include transition(transform, 0.35s, ease, 0s);
+		
 		-webkit-transform: translate(0px, 10px);
 		-moz-transform: -moz-translate(0px, 10px);
 		-ms-transform: -ms-translate(0px, 10px);
@@ -308,7 +309,6 @@ $light-font: 300;
 		background: rgba(0,0,0,0.6);
 		content: '';
 		opacity: 0;
-		
 		-webkit-transition: opacity 0.35s ease 0s, -webkit-transform 0.35s ease 0s;
 		transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
 	}
@@ -494,11 +494,12 @@ $light-font: 300;
 		height:3em;
 		border-radius:50%;
 		border: 1px solid #333;
-		-webkit-transition: all 0.35s ease 0s;
-		-moz-transition: all 0.35s ease 0s;
-		-ms-transition: all 0.35s ease 0s;
-		-o-transition: all 0.35s ease 0s;
-		transition: all 0.35s ease 0s;
+		@include transition(all, .35s, ease, 0s);
+		// -webkit-transition: all 0.35s ease 0s;
+		// -moz-transition: all 0.35s ease 0s;
+		// -ms-transition: all 0.35s ease 0s;
+		// -o-transition: all 0.35s ease 0s;
+		// transition: all 0.35s ease 0s;
 
 		&:hover {
 			border-radius:0;
